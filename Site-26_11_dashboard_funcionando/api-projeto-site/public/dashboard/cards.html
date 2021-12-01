@@ -17,8 +17,8 @@
         rel="stylesheet">
 </head>
 
-<!-- <body onload="validarSessao(), atualizacaoPeriodica()"> -->
-<body>
+<body onload="validarSessao(), atualizacaoPeriodica()">
+<!-- <body> -->
     <div class="janela">
 
 
@@ -40,11 +40,11 @@
                 </a>
             </div>
 
-            <div class="btn-nav-white">
+            <!-- <div class="btn-nav-white">
                 <a href="./mural.html">
                     <h3 style="color: black;">Mural de Avisos</h3>
                 </a>
-            </div>
+            </div> -->
             <br><br>
             <div class="btn-logout" onclick="limparSessao()">
                 <h3 style="color: black;">Sair</h3>
@@ -117,15 +117,15 @@
 
 <script>
     function atualizacaoPeriodica() {
-        obterdados(1);
-        obterdados(2);
-        obterdados(3);
-        obterdados(4);
+        obterdados(200);
+        obterdados(201);
+        obterdados(202);
+        obterdados(203);
         setTimeout(atualizacaoPeriodica, 5000);
     }
 
-    function obterdados(idLeitura) {
-        fetch(`/medidas/tempo-real/${idLeitura}`)
+    function obterdados(idBarril) {
+        fetch(`/medidas/tempo-real/${idBarril}`)
             .then(resposta => {
 
                 if (resposta.ok) {
@@ -134,10 +134,10 @@
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                         var dados = {
-                            temperatura: resposta[0].temperatura,
+                            temperatura: resposta[0].temperatura_lm35,
                         }
 
-                        alertar(resposta[0].temperatura, idLeitura);
+                        alertar(resposta[0].temperatura_lm35, idBarril);
                     });
                 } else {
 
@@ -149,7 +149,7 @@
             });
     }
 
-    function alertar(temperatura, idLeitura) {
+    function alertar(temperatura_lm35, idBarril) {
         var limites = {
             muito_quente: 25,
             quente: 22,
@@ -160,40 +160,40 @@
 
         var classe_temperatura = 'cor-alerta';
 
-        if (temperatura >= limites.muito_quente) {
+        if (temperatura_lm35 >= limites.muito_quente) {
             classe_temperatura = 'cor-alerta perigo-quente';
             console.log("caiu no 1")
         }
-        else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+        else if (temperatura_lm35 < limites.muito_quente && temperatura_lm35 >= limites.quente) {
             classe_temperatura = 'cor-alerta alerta-quente';
             console.log("caiu no 2")
         }
-        else if (temperatura < limites.quente && temperatura > limites.frio) {
+        else if (temperatura_lm35 < limites.quente && temperatura_lm35 > limites.frio) {
             classe_temperatura = 'cor-alerta ideal';
             console.log("caiu no 3")
         }
-        else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+        else if (temperatura_lm35 <= limites.frio && temperatura_lm35 > limites.muito_frio) {
             classe_temperatura = 'cor-alerta alerta-frio';
             console.log("caiu no 4")
         }
-        else if (temperatura < limites.min_temperatura) {
+        else if (temperatura_lm35 < limites.min_temperatura) {
             classe_temperatura = 'cor-alerta perigo-frio';
             console.log("caiu no 5")
         }
 
         var card;
 
-        if (idLeitura == 1) {
-            temp_aquario_1.innerHTML = temperatura + "°C";
+        if (idBarril == 1) {
+            temp_aquario_1.innerHTML = temperatura_lm35 + "°C";
             card = card_1
-        } else if (idLeitura == 2) {
-            temp_aquario_2.innerHTML = temperatura + "°C";
+        } else if (idBarril == 2) {
+            temp_aquario_2.innerHTML = temperatura_lm35 + "°C";
             card = card_2
-        } else if (idLeitura == 3) {
-            temp_aquario_3.innerHTML = temperatura + "°C";
+        } else if (idBarril == 3) {
+            temp_aquario_3.innerHTML = temperatura_lm35 + "°C";
             card = card_3
-        } else if (idLeitura == 4) {
-            temp_aquario_4.innerHTML = temperatura + "°C";
+        } else if (idBarril == 4) {
+            temp_aquario_4.innerHTML = temperatura_lm35 + "°C";
             card = card_4
         }
 

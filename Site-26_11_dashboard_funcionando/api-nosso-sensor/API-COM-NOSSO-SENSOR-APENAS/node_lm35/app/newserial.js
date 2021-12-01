@@ -75,7 +75,7 @@ class ArduinoRead {
                     // var http = new XMLHttpRequest();
                     // http.open('POST', 'http://localhost:3000/api/sendData', false);
                     // http.send(null);
-                    //this.listData.push(parseFloat(data));
+                    // this.listData.push(parseFloat(data));
                 });
             } catch (e) {
             }
