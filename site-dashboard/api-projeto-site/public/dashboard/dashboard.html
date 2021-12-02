@@ -131,7 +131,16 @@
             var registro = resposta[i];
             dados.labels.push(registro.momento_grafico);
             dados.datasets[0].data.push(registro.temperatura_lm35);
-        
+            if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
+                dados.datasets[0].backgroundColor = '#0000ff';
+            }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 26) {
+                dados.datasets[0].backgroundColor = '#ffff00';
+                
+                }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
+                dados.datasets[0].backgroundColor = '#fa4454';
+                }
         }
 
         console.log(JSON.stringify(dados));
@@ -181,8 +190,16 @@
                     dados.datasets[0].data.push(novoRegistro[novoRegistro.length - 1].temperatura_lm35); // incluir uma nova medida de umidade
 
                     window.grafico_linha.update();
-                    // plotarGrafico(dados, idBarril);
-                    
+                    if (dados.datasets[0].data[dados.datasets[0].data.length-1] < 24) {
+                dados.datasets[0].backgroundColor = '#0000ff';
+            }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 26) {
+                dados.datasets[0].backgroundColor = '#ffff00';
+                
+                }
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
+                dados.datasets[0].backgroundColor = '#fa4454';
+                }
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
                 });
             } else {
