@@ -2,6 +2,7 @@ const sensors = require('./sensors')
 const SerialPort = require("serialport");
 const Readline = SerialPort.parsers.Readline;
 
+
 class ArduinoRead {
 
     constructor() {
@@ -76,6 +77,7 @@ class ArduinoRead {
                     // http.open('POST', 'http://localhost:3000/api/sendData', false);
                     // http.send(null);
                     // this.listData.push(parseFloat(data));
+                   
                 });
             } catch (e) {
             }
@@ -84,6 +86,8 @@ class ArduinoRead {
     }
 
 }
+
+
 
 const serial = new ArduinoRead();
 serial.SetConnection();

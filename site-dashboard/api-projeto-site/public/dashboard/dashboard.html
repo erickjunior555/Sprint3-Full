@@ -59,7 +59,7 @@
         <div class="dash">
             <div class="btns-dash">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <button class="btn-chart" onclick="obterDadosGrafico(200)">Barril 1</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(1)">Barril 1</button>
                 <button class="btn-chart" onclick="obterDadosGrafico(201)">Barril 2</button>
                 <button class="btn-chart" onclick="obterDadosGrafico(202)">Barril 3</button>
                 <button class="btn-chart" onclick="obterDadosGrafico(203)">Barril 4</button>
@@ -133,13 +133,16 @@
             dados.datasets[0].data.push(registro.temperatura_lm35);
             if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
+                dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
             }
             else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 26) {
-                dados.datasets[0].backgroundColor = '#ffff00';
+                dados.datasets[0].backgroundColor = '#ff0000';
+                dados.datasets[0].label = 'Temperatura Acima da Ideal';
                 
                 }
             else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
-                dados.datasets[0].backgroundColor = '#fa4454';
+                dados.datasets[0].backgroundColor = '#26d701';
+                dados.datasets[0].label = 'Temperatura Ideal';
                 }
         }
 
@@ -190,21 +193,24 @@
                     dados.datasets[0].data.push(novoRegistro[novoRegistro.length - 1].temperatura_lm35); // incluir uma nova medida de umidade
 
                     window.grafico_linha.update();
-                    if (dados.datasets[0].data[dados.datasets[0].data.length-1] < 24) {
+                    if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
+                dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
             }
             else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 26) {
-                dados.datasets[0].backgroundColor = '#ffff00';
+                dados.datasets[0].backgroundColor = '#ff0000';
+                dados.datasets[0].label = 'Temperatura Acima da Ideal';
                 
                 }
             else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
-                dados.datasets[0].backgroundColor = '#fa4454';
+                dados.datasets[0].backgroundColor = '#26d701';
+                dados.datasets[0].label = 'Temperatura Ideal';
                 }
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
             }
         })
             .catch(function (error) {
