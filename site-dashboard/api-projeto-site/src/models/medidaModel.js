@@ -5,7 +5,7 @@ function buscarUltimasMedidas(idBarril, limite_linhas) {
     instrucaoSql = `select 
                         idSensor,
                         temperatura_lm35, 
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
+                        momento as momento_grafico
                         from leitura join sensor on idSensor = 200
                         order by idLeitura asc limit ${limite_linhas};`;
 
