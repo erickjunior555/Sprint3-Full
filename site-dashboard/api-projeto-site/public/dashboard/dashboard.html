@@ -199,7 +199,7 @@
             var registro = resposta[i];
             dados.labels.push(registro.momento_grafico);
             dados.datasets[0].data.push(registro.temperatura_lm35);
-<<<<<<< HEAD
+
 
         if (dados.datasets[0].data[dados.datasets[0].data.length-1] >= 26) {
             dados.datasets[0].backgroundColor = '#ff0000';
@@ -210,7 +210,7 @@
         else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 24 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 26) {
             dados.datasets[0].backgroundColor = '#26d701';
         }
-=======
+
             if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
                 dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
@@ -224,7 +224,7 @@
                 dados.datasets[0].backgroundColor = '#26d701';
                 dados.datasets[0].label = 'Temperatura Ideal';
                 }
->>>>>>> f4a3fe4e672a6d4fc7046ee7f9025f94f3cd09f3
+
         }
 
         console.log(JSON.stringify(dados));
@@ -282,11 +282,11 @@
             dados.datasets[0].backgroundColor = '#26d701';
         }
                     window.grafico_linha.update();
-<<<<<<< HEAD
+
                     // plotarGrafico(dados, idBarril);
                     
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
-=======
+
                     if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
                 dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
@@ -301,7 +301,7 @@
                 dados.datasets[0].label = 'Temperatura Ideal';
                 }
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
->>>>>>> f4a3fe4e672a6d4fc7046ee7f9025f94f3cd09f3
+
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
