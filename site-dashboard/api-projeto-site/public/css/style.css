@@ -434,6 +434,7 @@ ul li i ::after{
     display: none;
 } 
 
+
 .container {
     background-color: rgba(255, 255, 255, 1);
     display: flex;
@@ -753,9 +754,14 @@ ul li i ::after{
 
 .janela {
     display: flex;
-    width: 100vw;
+    width: 99vw;
     /* height: 100vh; */
+    background-color: #CED4DA;
 }
+
+
+
+
 
 .header-left a {
     text-decoration: none;
@@ -763,20 +769,23 @@ ul li i ::after{
 }
 
 .header-left {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
+    /* top: 13.8%; */
+    left: 0px;
     z-index: 999;
-    height: 100vh;
+    height: 84vh;
     width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     border-right: 3px solid #fa4454;
-    background-color: #212124;
-    /* border: 3px solid pink; */
+    background-color: #CED4DA;
+    padding-bottom: 56.6%;
+    
 }
+
+
 
 .dash-right {
     display: flex;
@@ -806,13 +815,13 @@ ul li i ::after{
 
 .hello h3 span {
     font-weight: 800;
-    color: yellow;
+    color: #000;
 }
 
 .btn-nav {
     width: 45%;
-    background-color: #fa4454;
-    border: 3px solid #fa4454;
+    background-color: #CD1818;
+    border: 3px solid #000;
     border-radius: 5px;
     text-align: center;
     padding: 2% 5%;
@@ -840,7 +849,7 @@ ul li i ::after{
 }
 
 .btn-nav-white h3 {
-    color: black;
+    color: #fff;
     padding: 0;
     margin: 0;
 }
@@ -854,14 +863,15 @@ ul li i ::after{
 .btn-logout {
     margin: 0;
     padding: 0;
-    width: 40%;
+    width: 23%;
     background-color: aliceblue;
     color: black;
-    border-radius: 10px;
+    border-radius: 50px;
     text-align: center;
     padding: 10px 15px;
     margin-bottom: 100px;
     cursor: pointer;
+    border-bottom: solid 4px darkslategrey;
 }
 
 .btn-logout:hover{

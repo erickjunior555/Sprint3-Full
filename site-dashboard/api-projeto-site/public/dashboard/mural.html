@@ -18,10 +18,11 @@
 </head>
 
 <!-- <body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;"> -->
-    <body>
-        
+
+<body>
+
     <div class="janela">
-        <div class="header-left">
+        <div class="header-left-mural">
 
             <h1>TERMO VINHOS</h1>
 
@@ -44,17 +45,16 @@
             <div class="btn-nav">
                 <h3 style="color: black;">Mural de Avisos</h3>
             </div>
-<br><br>
+            <br><br>
             <div class="btn-logout" onclick="limparSessao()">
                 <h3 style="color: black;">Sair</h3>
             </div>
 
         </div>
 
-        <div class="dash-right">
-
-            <div class="avisos">
-                <div class="container">
+        <div class="dash-mural">
+            <div class="container-mural">
+                <div class="avisos">
                     <h1>Publicar um aviso</h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
@@ -66,21 +66,21 @@
                             <br>
                             <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             <br>
-                            <button>Enviar</button>
+                            <button class="btn-mural">Enviar</button>
                         </form>
                     </div>
-                    <h1>Mural de Avisos</h1>
+                    <h2>Mural de Avisos</h2>
                     <div class="div-results">
                         <div id="feed_container" class="feed-container">
                         </div>
                     </div>
                 </div>
             </div>
-                    
+
             <!-- AGUARDAR -->
             <div id="div_aguardar" class="div-aguardar">
                 <img src="../assets/circle-loading.gif" id="img_aguarde">
-            </div> 
+            </div>
 
         </div>
     </div>
@@ -105,7 +105,7 @@
             titulo: form_postagem.titulo.value,
             descricao: form_postagem.descricao.value
         }
-        
+
         fetch(`/avisos/publicar/${idUsuario}`, {
             method: "post",
             headers: {
@@ -117,12 +117,12 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Post realizado com sucesso pelo usuario de ID: "+idUsuario+"!");
+                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
                 window.location = "/dashboard/mural.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: "+resposta.status);
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
             }
         }).catch(function (erro) {
             console.log(`#ERRO: ${erro}`);
@@ -162,12 +162,12 @@
                         var divButtons = document.createElement("div");
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
-                        spanTitulo.innerHTML = "Título: <b>"+publicacao.titulo+"</b>";
-                        spanNome.innerHTML = "Autor: <b>"+publicacao.nome+"</b>";
-                        divDescricao.innerHTML = "Descrição: <b>"+publicacao.descricao+"</b>";
+                        spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                        spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                        divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
 
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero"+publicacao.idAviso;
+                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
@@ -185,9 +185,9 @@
                     finalizarAguardar();
                 });
             } else {
-                throw('Houve um erro na API!');
+                throw ('Houve um erro na API!');
             }
-        }).catch(function(resposta) {
+        }).catch(function (resposta) {
             console.error(resposta);
             finalizarAguardar();
         });
@@ -200,7 +200,7 @@
 
         var divResultado = document.getElementById("div_feed");
 
-        divResultado.appendChild(document.createTextNode(formulario.get("descricao"))); 
+        divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
         divResultado.innerHTML = formulario.get("descricao");
 
         finalizarAguardar();

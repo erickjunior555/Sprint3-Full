@@ -1,25 +1,121 @@
 /* pagina mural */
 
 *, body {
-    font-family: 'Exo 2', sans-serif;
-    color: aliceblue;
-}
+    padding: 0;
+    margin: 0;
+ }
+ .div-form{
+     font-family: 'Exo 2', sans-serif;
+     color: #212124;
+     margin-left: 20px;
+ 
+ }
+ 
+ .container-mural {
+     background-color: rgba(255, 255, 255, 1);
+     display: flex;
+     /* flex-direction: column; */
+     /* justify-content: center; */
+     align-items: center;
+     /* width: 30vw; */
+     height: 75vh;
+     margin: 50px;
+     /* border: 1px solid transparent; */
+     /* box-shadow: inset 0 0 1em #800000, 0 0 3em #800000; */
+     padding: 20px;
+ }
+ 
+ .header-left-mural {
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 999;
+     height: 100vh;
+     width: 25%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     align-items: center;
+     border-right: 2px solid black;
+     background-color: darkgrey;
+     /* border: 3px solid pink; */
+ }
+ .header-left-mural a {
+     text-decoration: none;
+     color: white;
+     
+ }
+ 
+ .dash-mural {
+     height: 100vh; 
+     width: 75%;
+     position: relative;
+     top: 0;
+     left: 25%;
+     /* background-image: url('https://c0.wallpaperflare.com/preview/241/384/859/analysis-analytics-analyzing-annual.jpg'); */
+     background-color: #e5e5e5; 
+     /* width: 75%;
+     display: flex;
+     background-color: #161618;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-around;*/
+ }
+ 
+ #div_aguardar{
+     display: none;
+ }
+ 
+ 
+ .container-mural h1{
+     color: firebrick;
+     margin-left:20px ;
+ }
+ 
+ .container-mural h2{
+     color: firebrick;
+     text-align: center;
+     border: inset;
+     border-left: none;
+ 
+ }
+ 
+ 
+ #titulo{
+    height: 25px;
+    width: 50%;
+    font-size: larger;
+    border: ridge;
+ }
+ 
+ #textarea_descricao{
+     height: 200px;
+     width: 65%;
+     font-size: larger;
+     border:inset;
+ }
+ 
+ .btn-mural{
+     height: 20%;
+ }
+ 
+ .dash-mural .avisos {
+     width: 100%;
+     /* border: 3px solid pink; */
+     color: rgb(216, 216, 216);
+     font-family: 'Exo 2', sans-serif;
+     background-color: #16161824;
+     height: 100%;
+ }
+ 
+ .dash-mural .avisos .container-mural {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     background-image: url('https://c0.wallpaperflare.com/preview/241/384/859/analysis-analytics-analyzing-annual.jpg'); 
+ 
+ }
 
-.dash-right .avisos {
-    width: 100%;
-    /* border: 3px solid pink; */
-    color: rgb(216, 216, 216);
-    font-family: 'Exo 2', sans-serif;
-    /* background-color: white; */
-}
-
-.dash-right .avisos .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('https://c0.wallpaperflare.com/preview/241/384/859/analysis-analytics-analyzing-annual.jpg'); 
-
-}
 .dash-right .avisos .container .div-form {
     width: 100%;
 }
@@ -58,7 +154,7 @@
     font-size: 18px;
     padding: 10px 15px;
     color: white;
-    background-color: #364966;
+    background-color: #CD1818;
     border-bottom: 2px solid white;
     width: 120px;
 }
@@ -117,11 +213,11 @@
 }
 
 .dash {
-    width: 75%;
+    width: 75vw;
     position: relative;
     top: 0;
     left: 25%;
-    background-image: url('https://c0.wallpaperflare.com/preview/241/384/859/analysis-analytics-analyzing-annual.jpg');
+    background-color: #CED4DA;
     /* background-color: #e5e5e5; */
 
     /* width: 75%;
@@ -138,7 +234,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin-top: 30px;
+    padding-top: 30px;
 }
 
 .perigo-frio {
@@ -161,13 +257,13 @@
 }
 
 .alerta-quente {
-    background-color: #ff7300;
+    background-color: #FBFF00;
     border-radius: 5px;
     border: 3px solid black;
 }
 
 .ideal {
-    background-color: #9CCC65;
+    background-color: #49FF00;
     border-radius: 5px;
     border: 3px solid black;
     
@@ -200,9 +296,10 @@
     text-align: center;
     height: 180px;
     justify-content: right;
-    background-color: #e4e4e4;
-    opacity: 0.6;
+    background-color:#000;
+    opacity: 0.9;
     border: 2px solid black;
+    border-radius: 17px;
     font-size: 20px;
 }
 
@@ -216,11 +313,11 @@
 .cards h1 {
     font-size: 22px;
     width: 100%;
-    border-bottom: solid black 1px;
+    border-bottom: solid white 1px;
     text-align: left;
     font-weight: lighter;
     margin: 20px;
-    color: black;
+    color: #fff;
     font-weight: bolder;
 }
 
@@ -244,13 +341,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    padding-top: 30px;
+    background-color: #CED4DA;
 }
 
 .graph{
     width: 80%;
     margin: auto;
-    padding-top: 45px;
+    margin-top: 45px;
+    background-color: white;
+    border-radius: 17px;
 }
 
 .btn-chart{
@@ -262,8 +362,24 @@
     color: white;
     border-radius: 5px;
     border: 3px solid black;
-    background-color: #fa4454;
+    background-color: #CD1818;
     margin: 5px;
+}
+
+.parte_2{
+    width: 100%;
+}
+
+#canvas_grafico{
+    outline: 2px solid;
+    border-radius: 17px;
+    width: 100%;
+}
+
+
+.novologo{
+    width: 100%;
+  
 }
 /* .btn-chart:hover{
     

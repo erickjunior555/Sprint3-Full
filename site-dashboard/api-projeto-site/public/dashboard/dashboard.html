@@ -24,31 +24,34 @@
 
 <!-- <body onload="validarSessao(),  obterDadosGrafico(1)"> -->
     <body>
-    <div class="janela">
-        <div class="header-left">
-            <h1>TERMO VINHOS </h1>
-
+        <div class="janela">
+            <div class="header-left">
+            <img src="Novo logo.png" alt="" class="novologo"> 
+            <img src="image.png"alt="" style="height: 100px;">
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
+             
+            <div class="btn-nav">
 
+                <h3 style="color: #fff;">Gráficos</h3>
+
+            </div>
+
+            <br> <br>
             <div class="btn-nav-white">
                 <a href="./cards.html">
                     <h3 style="color: black;">Barris</h3>
                 </a>
             </div>
-
-            <div class="btn-nav">
-
-                <h3 style="color: black;">Gráficos</h3>
-
-            </div>
-
-            <!-- <div class="btn-nav-white">
+            
+         
+            <br> <br> 
+            <div class="btn-nav-white">
                 <a href="./mural.html">
                     <h3 style="color: black;">Mural de Avisos</h3>
                 </a>
-            </div> -->
+            </div> 
             <br><br>
             <div class="btn-logout" onclick="limparSessao()">
                 <h3 style="color: black;">Sair</h3>
@@ -64,10 +67,75 @@
                 <button class="btn-chart" onclick="obterDadosGrafico(202)">Barril 3</button>
                 <button class="btn-chart" onclick="obterDadosGrafico(203)">Barril 4</button>
             </div>
-            <div class="graph">
+            
+            <div class="graph">    
                 <canvas id="canvas_grafico"></canvas>
             </div>
         </div>
+    </div>
+
+    <div class="parte_2">
+        <div class="dash">
+            <div class="regua">
+                <!-- <div class="item-regua perigo-frio">
+                    <h4>Perigo</h4>
+                    <h2>0°C</h2>
+                </div> -->
+                <div class="item-regua alerta-frio">
+                    <h4>Alerta</h4>
+                    <h2>0°C</h2>
+                </div>
+                <div class="item-regua ideal">
+                    <h4>Ideal</h4>
+                    <h2>0°C</h2>
+                </div>
+                <!-- <div class="item-regua alerta-quente">
+                    <h4>Alerta</h4>
+                    <h2>0°C</h2>
+                </div> -->
+                <div class="item-regua perigo-quente">
+                    <h4>Perigo</h4>
+                    <h2>0°C</h2>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h1>Barril 1</h1>
+                    <div class="temperatura">
+                        <p id="temp_aquario_1" style="color: white;">-°C</p>
+                    </div>
+                    <div class="cor-alerta" id="card_1"></div>
+                </div>
+                <div class="card">
+                    <h1>Barril 2</h1>
+                    <div class="temperatura">
+                        <p id="temp_aquario_2" style="color: white;">-°C</p>
+                    </div>
+                    <div class="cor-alerta" id="card_2"></div>
+
+                </div>
+                <div class="card">
+                    <h1>Barril 3</h1>
+                    <div class="temperatura">
+                        <p id="temp_aquario_3" style="color: white;">-°C</p>
+                    </div>
+                    <div class="cor-alerta ideal" id="card_3"></div>
+                </div>
+                <div class="card">
+                    <h1>Barril 4</h1>
+                    <div class="temperatura">
+                        <p id="temp_aquario_4" style="color: white;">-°C</p>
+                    </div>
+                    <div class="cor-alerta" id="card_4"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
     </div>
     <div id="erros">
     </div>
@@ -131,6 +199,18 @@
             var registro = resposta[i];
             dados.labels.push(registro.momento_grafico);
             dados.datasets[0].data.push(registro.temperatura_lm35);
+<<<<<<< HEAD
+
+        if (dados.datasets[0].data[dados.datasets[0].data.length-1] >= 26) {
+            dados.datasets[0].backgroundColor = '#ff0000';
+        }
+        else if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
+            dados.datasets[0].backgroundColor = '#0000ff';
+        }
+        else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 24 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 26) {
+            dados.datasets[0].backgroundColor = '#26d701';
+        }
+=======
             if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
                 dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
@@ -144,6 +224,7 @@
                 dados.datasets[0].backgroundColor = '#26d701';
                 dados.datasets[0].label = 'Temperatura Ideal';
                 }
+>>>>>>> f4a3fe4e672a6d4fc7046ee7f9025f94f3cd09f3
         }
 
         console.log(JSON.stringify(dados));
@@ -191,8 +272,21 @@
                     dados.labels.push(novoRegistro[novoRegistro.length - 1].momento_grafico); // incluir um novo momento
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro[novoRegistro.length - 1].temperatura_lm35); // incluir uma nova medida de umidade
-
+                    if (dados.datasets[0].data[dados.datasets[0].data.length-1] >= 26) {
+            dados.datasets[0].backgroundColor = '#ff0000';
+        }
+        else if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
+            dados.datasets[0].backgroundColor = '#0000ff';
+        }
+        else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 24 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 26) {
+            dados.datasets[0].backgroundColor = '#26d701';
+        }
                     window.grafico_linha.update();
+<<<<<<< HEAD
+                    // plotarGrafico(dados, idBarril);
+                    
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
+=======
                     if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
                 dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
@@ -207,6 +301,7 @@
                 dados.datasets[0].label = 'Temperatura Ideal';
                 }
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
+>>>>>>> f4a3fe4e672a6d4fc7046ee7f9025f94f3cd09f3
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
