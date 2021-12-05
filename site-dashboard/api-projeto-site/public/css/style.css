@@ -85,27 +85,11 @@ scroll-behavior: smooth;
 }
 
 /* -------- introdução ------------*/
-.introduction {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    margin-left: 70px;
-}
 
-div .introduction h2 {
-    color: #800000;
-    background-color: white;
-    padding: 25px;
-    border-radius: 20px; 
-    font-weight: bolder;
-    box-shadow: 5px 3px 3px #7a7878f5;
-     
-}
+
 .container-introduction{
     height: 60vh;
-    display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -161,7 +145,7 @@ div .introduction h2 {
 }
 
 .navbar-about a:hover {
-    color: #cd8c01;
+    color: #c40000;
 }
 
 .about{
@@ -549,15 +533,18 @@ ul li i ::after{
     min-height: 800px;
     background:url(../assets/imgs/vinho.jpg);
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-self: center;
+    
 }
 .contatoarea{
     width: 1005;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    /* margin-top: 100px; */
+    padding: 10%;
     
 }
 .contatoinfo{
@@ -769,10 +756,6 @@ ul li i ::after{
     background-color: #CED4DA;
 }
 
-
-
-
-
 .header-left a {
     text-decoration: none;
     color: white;
@@ -789,13 +772,18 @@ ul li i ::after{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border-right: 3px solid #fa4454;
-    background-color: #CED4DA;
+    border-right: 2px solid black;
+    background-color: darkgrey;
     padding-bottom: 56.6%;
     
 }
 
 
+.img-perfil{
+    height: 100px;
+    margin-top: 16%;
+
+}
 
 .dash-right {
     display: flex;
@@ -808,7 +796,7 @@ ul li i ::after{
 }
 
 .header-left h1 {
-    color: #fa4454;
+    color: firebrick;
 }
 
 .hello {
@@ -818,7 +806,7 @@ ul li i ::after{
 }
 
 .hello h3 {
-    color: #fa4454;
+    color: firebrick;
     font-weight: 300;
     font-size: 1.2rem;
 }
@@ -847,7 +835,7 @@ ul li i ::after{
 .btn-nav-white {
     width: 45%;
     background-color: white;
-    border: 3px solid #fa4454;
+    border: 3px solid firebrick;
     border-radius: 5px;
     text-align: center;
     padding: 2% 5%;
@@ -885,7 +873,7 @@ ul li i ::after{
 }
 
 .btn-logout:hover{
-    background-color: #fa4454;
+    background-color: firebrick;
     color: aliceblue;
     border: 2px solid black;
 }

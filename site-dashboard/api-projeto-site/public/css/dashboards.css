@@ -10,7 +10,12 @@
      margin-left: 20px;
  
  }
- 
+
+ .novologo-mural {
+    width: 87%;
+    margin-top: 14%;
+ }
+
  .container-mural {
      background-color: rgba(255, 255, 255, 1);
      display: flex;
@@ -39,6 +44,7 @@
      border-right: 2px solid black;
      background-color: darkgrey;
      /* border: 3px solid pink; */
+     
  }
  .header-left-mural a {
      text-decoration: none;
@@ -155,6 +161,20 @@
     padding: 10px 15px;
     color: white;
     background-color: #CD1818;
+    border-bottom: 2px solid white;
+    width: 120px;
+}
+
+.dash-mural .avisos .div-form button {
+    cursor: pointer;
+    font-family: 'Exo 2', sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: firebrick;
     border-bottom: 2px solid white;
     width: 120px;
 }
@@ -364,6 +384,13 @@
     border: 3px solid black;
     background-color: #CD1818;
     margin: 5px;
+    cursor: pointer;
+}
+
+.btn-chart:hover{
+    background-color: firebrick;
+    color: aliceblue;
+    border: 2px solid black;
 }
 
 .parte_2{
@@ -378,8 +405,8 @@
 
 
 .novologo{
-    width: 100%;
-  
+    width: 87%;
+    margin-top: 46%;
 }
 /* .btn-chart:hover{
     
