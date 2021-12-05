@@ -1,12 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap');
+
 * {
     font-family: 'Cabin';
     margin: 0;
     padding: 0;
 }
-@font-face {
-    font-family: 'Cabin';
-    src: url(Cabin-VariableFont_wdth\,wght.ttf);
-}
+
 
 html{
 scroll-behavior: smooth;
@@ -46,13 +45,13 @@ scroll-behavior: smooth;
 
 .header {
     width: 100vw;
-    height: 11vh;
+    height: 80px;
     background-color: #CED4DA;
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 3px solid transparent;
-    box-shadow: 5px 3px 3px #7a7878f5;
+    box-shadow: 5px 3px 3px #000000f5;
 }
 
 .container2 {
@@ -60,6 +59,10 @@ scroll-behavior: smooth;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.container2 img {
+    width: 25%;
 }
 
 .navbar {
@@ -74,10 +77,11 @@ scroll-behavior: smooth;
 .navbar a {
     text-decoration: none;
     color: black;
+    transition: ease-in 0.2s;
 }
 
 .navbar a:hover {
-    color: #cd8c01;
+    color: #c40000;
 }
 
 /* -------- introdução ------------*/
@@ -122,7 +126,7 @@ div .introduction h2 {
 /* -------- Sobre nos -----------*/
 .header-about {
     width: 100vw;
-    height: 11vh;
+    height: 80px;
     background-color: #CED4DA;
     display: flex;
     justify-content: center;
@@ -136,6 +140,10 @@ div .introduction h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.container-about img {
+    width: 25%;
 }
 
 .navbar-about {
@@ -355,7 +363,7 @@ ul li i ::after{
   padding: 0;
   margin: 0;
   font-size: 4.5em;
-  text-shadow: 2px 2px 2px #800000;
+  text-shadow: 3px 2px 5px #000000;
 }
 
 .vert_text span {
@@ -363,7 +371,7 @@ ul li i ::after{
     color: #800000 ;
     padding: 0;
     margin: 0;
-    text-shadow: 1px 1px 2px white;
+    text-shadow: 2px 1px 3px white;
   }
 
 
@@ -404,19 +412,21 @@ ul li i ::after{
 .icons div {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 300px;
+    margin: 25px 0;
 }
 
 .icons img {
     height: 120px;
     width: 120px;
     margin: 30px;
+    transition: ease-in 0.3s;
 }
 
 .icons img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 /* --------------- css Login e cadastro e simulador ------------------ */
