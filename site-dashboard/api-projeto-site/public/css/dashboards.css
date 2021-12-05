@@ -3,7 +3,8 @@
 *, body {
     padding: 0;
     margin: 0;
- }
+}
+
  .div-form{
      font-family: 'Exo 2', sans-serif;
      color: #212124;
@@ -12,8 +13,8 @@
  }
 
  .novologo-mural {
-    width: 87%;
-    margin-top: 14%;
+    width: 77%;
+    /* margin-top: 14%; */
  }
 
  .container-mural {
@@ -42,7 +43,7 @@
      justify-content: space-evenly;
      align-items: center;
      border-right: 2px solid black;
-     background-color: darkgrey;
+     background-color: #fff;
      /* border: 3px solid pink; */
      
  }
@@ -73,18 +74,17 @@
  }
  
  
- .container-mural h1{
-     color: firebrick;
-     margin-left:20px ;
- }
+.container-mural h1{
+    color: firebrick;
+    margin-left:20px ;
+}
  
  .container-mural h2{
-     color: firebrick;
-     text-align: center;
-     border: inset;
-     border-left: none;
- 
- }
+    color: firebrick;
+    text-align: center;
+    border: inset;
+    border-left: none;
+}
  
  
  #titulo{
@@ -94,12 +94,12 @@
     border: ridge;
  }
  
- #textarea_descricao{
+#textarea_descricao{
      height: 200px;
      width: 65%;
      font-size: larger;
      border:inset;
- }
+}
  
  .btn-mural{
      height: 20%;
@@ -237,9 +237,8 @@
     position: relative;
     top: 0;
     left: 25%;
-    background-color: #CED4DA;
+    background-color: #e5e5e5;
     /* background-color: #e5e5e5; */
-
     /* width: 75%;
     display: flex;
     background-color: #161618;
@@ -362,7 +361,7 @@
     align-items: center;
     justify-content: center;
     padding-top: 30px;
-    background-color: #CED4DA;
+    background-color: #fff;
 }
 
 .graph{
@@ -405,7 +404,7 @@
 
 
 .novologo{
-    width: 87%;
+    width: 77%;
     margin-top: 46%;
 }
 /* .btn-chart:hover{
