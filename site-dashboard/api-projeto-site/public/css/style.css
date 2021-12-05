@@ -7,8 +7,8 @@
 }
 
 
-html{
-scroll-behavior: smooth;
+html {
+    scroll-behavior: smooth;
 }
 
 .padrao {
@@ -32,7 +32,6 @@ scroll-behavior: smooth;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .fixed{
@@ -753,7 +752,7 @@ ul li i ::after{
     display: flex;
     width: 99vw;
     /* height: 100vh; */
-    background-color: #CED4DA;
+    background-color: #fff;
 }
 
 .header-left a {
@@ -762,19 +761,18 @@ ul li i ::after{
 }
 
 .header-left {
-    position: absolute;
-    /* top: 13.8%; */
-    left: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 999;
-    height: 84vh;
+    height: 100vh;
     width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     border-right: 2px solid black;
-    background-color: darkgrey;
-    padding-bottom: 56.6%;
+    background-color: #fff;
     
 }
 
@@ -803,6 +801,7 @@ ul li i ::after{
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 10px 0;
 }
 
 .hello h3 {
@@ -830,8 +829,6 @@ ul li i ::after{
     width: 50%;
 }
 
-
-
 .btn-nav-white {
     width: 45%;
     background-color: white;
@@ -839,6 +836,7 @@ ul li i ::after{
     border-radius: 5px;
     text-align: center;
     padding: 2% 5%;
+    transition: ease-in 0.2s;
 }
 
 .btn-nav-white:hover{
@@ -864,19 +862,14 @@ ul li i ::after{
     width: 23%;
     background-color: aliceblue;
     color: black;
-    border-radius: 50px;
+    border-radius: 5px;
     text-align: center;
     padding: 10px 15px;
     margin-bottom: 100px;
     cursor: pointer;
-    border-bottom: solid 4px darkslategrey;
+    box-shadow: 3px 3px 3px #800000;
 }
 
-.btn-logout:hover{
-    background-color: firebrick;
-    color: aliceblue;
-    border: 2px solid black;
-}
 
 /* pagina extra - simulador */
 .simulador {
