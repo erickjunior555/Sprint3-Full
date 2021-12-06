@@ -41,10 +41,10 @@ router.post('/sendData', (request, response) => {
     // luminosidade = luminosidade[luminosidade.length-1];
     temperatura_lm35 = temperatura_lm35[temperatura_lm35.length-1];
     
-    var sql = `insert into leitura (idLeitura, temperatura_lm35, fkSensor) values 
-    (null, '${temperatura_lm35}', 200);`;
+    var sql = `insert into leitura (momento, temperatura_lm35, fkSensor) values 
+    (current_timestamp, '${temperatura_lm35}', 200);`;
 
-    db.query(sql, function(err, result) {
+    db.executar(sql, function(err, result) {
         if (err) throw err;
         console.log("Number of records inserted: " + result.affectedRows);
         console.log(temperatura_lm35)

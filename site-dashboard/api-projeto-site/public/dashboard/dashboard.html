@@ -23,14 +23,14 @@
 
 </head>
 
-<!-- <body onload="validarSessao(),  obterDadosGrafico(1)"> -->
-    <body>
+<body onload="validarSessao(),  obterDadosGrafico(1)">
+    <!-- <body> -->
         <div class="janela">
             <div class="header-left-mural">
             <img src="Novo logo.png" alt="" class="novologo-mural"> 
             <img class="img-perfil" src="image.png"alt="avatar">
             <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <h3>Olá, <span id="b_usuario"></span>!</h3>
             </div>
              
             <div class="btn-nav">
@@ -64,9 +64,9 @@
             <div class="btns-dash">
                 <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
                 <button class="btn-chart" onclick="obterDadosGrafico(1)">Barril 1</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(201)">Barril 2</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(202)">Barril 3</button>
-                <button class="btn-chart" onclick="obterDadosGrafico(203)">Barril 4</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(2)">Barril 2</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(3)">Barril 3</button>
+                <button class="btn-chart" onclick="obterDadosGrafico(4)">Barril 4</button>
             </div>
             
             <div class="graph">    
@@ -202,17 +202,7 @@
             dados.datasets[0].data.push(registro.temperatura_lm35);
 
 
-        if (dados.datasets[0].data[dados.datasets[0].data.length-1] >= 26) {
-            dados.datasets[0].backgroundColor = '#ff0000';
-        }
-        else if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
-            dados.datasets[0].backgroundColor = '#0000ff';
-        }
-        else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 24 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 26) {
-            dados.datasets[0].backgroundColor = '#26d701';
-        }
-
-            if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
+            if (dados.datasets[0].data[dados.datasets[0].data.length-1] < 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
                 dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
             }
@@ -221,7 +211,7 @@
                 dados.datasets[0].label = 'Temperatura Acima da Ideal';
                 
                 }
-            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] >= 24 && dados.datasets[0].data[dados.datasets[0].data.length-1] <= 26) {
                 dados.datasets[0].backgroundColor = '#26d701';
                 dados.datasets[0].label = 'Temperatura Ideal';
                 }
@@ -255,7 +245,7 @@
         });
 
         //Atualiza os dados de 2 em 2 segundos
-        setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
+        setTimeout(() => atualizarGrafico(idBarril, dados), 7000);
     }
 
     // só mexer se quiser alterar o tempo de atualização
@@ -286,9 +276,9 @@
 
                     // plotarGrafico(dados, idBarril);
                     
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 10000);
 
-                    if (dados.datasets[0].data[dados.datasets[0].data.length-1] <= 24) {
+                    if (dados.datasets[0].data[dados.datasets[0].data.length-1] < 24) {
                 dados.datasets[0].backgroundColor = '#0000ff';
                 dados.datasets[0].label = 'Temperatura Abaixo da Ideal';
             }
@@ -297,16 +287,16 @@
                 dados.datasets[0].label = 'Temperatura Acima da Ideal';
                 
                 }
-            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] > 23 && dados.datasets[0].data[dados.datasets[0].data.length-1] < 27) {
+            else if (dados.datasets[0].data[dados.datasets[0].data.length-1] >= 24 && dados.datasets[0].data[dados.datasets[0].data.length-1] <= 26) {
                 dados.datasets[0].backgroundColor = '#26d701';
                 dados.datasets[0].label = 'Temperatura Ideal';
                 }
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 10000);
 
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idBarril, dados), 10000);
             }
         })
             .catch(function (error) {
